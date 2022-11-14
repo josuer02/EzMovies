@@ -12,12 +12,14 @@ pool:
    demands: Agent.Name -equals AgentEsteban
 
 variables:
-   imageName: 'pipelines-javascript-docker'
+   imageName: '$(API_NAME)'
 
 steps:
+
  - task: Docker@2
    displayName: Build an image
    inputs:
      repository: $(imageName)
      command: build
      Dockerfile: app/Dockerfile
+
